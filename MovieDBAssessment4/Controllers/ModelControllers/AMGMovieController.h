@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSArray<AMGMovie *> * movies;
 
-- (void)fetchMovies:(void (^)(NSArray<AMGMovie *> *))completion;
++ (instancetype)sharedController;
+
+- (void)fetchMovies:(NSString *)searchTerm completion:(void (^)(NSArray<AMGMovie *> *))completion;
 
 @end
 
