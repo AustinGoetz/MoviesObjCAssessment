@@ -14,6 +14,7 @@
 		2A35CED72350D1E6000DF44B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A35CED52350D1E6000DF44B /* LaunchScreen.storyboard */; };
 		2A35CEDA2350D1E6000DF44B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A35CED92350D1E6000DF44B /* main.m */; };
 		2A35CEE62350D262000DF44B /* AMGMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A35CEE52350D262000DF44B /* AMGMovie.m */; };
+		2A3FEB6C2350DE28000DA0BB /* AMGMovieController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3FEB6B2350DE28000DA0BB /* AMGMovieController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		2A35CED92350D1E6000DF44B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A35CEE42350D262000DF44B /* AMGMovie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMGMovie.h; sourceTree = "<group>"; };
 		2A35CEE52350D262000DF44B /* AMGMovie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMGMovie.m; sourceTree = "<group>"; };
+		2A3FEB6A2350DE28000DA0BB /* AMGMovieController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMGMovieController.h; sourceTree = "<group>"; };
+		2A3FEB6B2350DE28000DA0BB /* AMGMovieController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMGMovieController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +107,18 @@
 		2A35CEE32350D222000DF44B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A3FEB6D2350DE2F000DA0BB /* ModelControllers */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2A3FEB6D2350DE2F000DA0BB /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A3FEB6A2350DE28000DA0BB /* AMGMovieController.h */,
+				2A3FEB6B2350DE28000DA0BB /* AMGMovieController.m */,
+			);
+			path = ModelControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A35CEC92350D1E4000DF44B /* AppDelegate.m in Sources */,
+				2A3FEB6C2350DE28000DA0BB /* AMGMovieController.m in Sources */,
 				2A35CEDA2350D1E6000DF44B /* main.m in Sources */,
 				2A35CEE62350D262000DF44B /* AMGMovie.m in Sources */,
 				2A35CECC2350D1E4000DF44B /* SceneDelegate.m in Sources */,
@@ -323,7 +337,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G359J97949;
-				INFOPLIST_FILE = MovieDBAssessment4/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MovieDBAssessment4/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,7 +354,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G359J97949;
-				INFOPLIST_FILE = MovieDBAssessment4/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MovieDBAssessment4/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
