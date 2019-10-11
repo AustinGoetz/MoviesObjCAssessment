@@ -19,17 +19,8 @@ static NSString * const querySearchKey = @"query";
 
 @implementation AMGMovieController
 
-+ (instancetype)sharedController;
++ (void)fetchMovies:(NSString *)searchTerm completion:(void (^)(NSArray<AMGMovie *> *))completion
 {
-    static AMGMovieController *sharedController = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedController = [[AMGMovieController alloc] init];
-    });
-    return sharedController;
-}
-
-- (void)fetchMovies:(NSString *)searchTerm completion:(void (^)(NSArray<AMGMovie *> * _Nonnull))completion{
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
     NSURL *searchURL = [baseURL URLByAppendingPathComponent:searchComponent];
     NSURL *movieURL = [searchURL URLByAppendingPathComponent:movieComponent];
@@ -42,16 +33,14 @@ static NSString * const querySearchKey = @"query";
     componentsURL.queryItems = @[apiKeyQuery, searchQuery];
     
     NSURL *finalURL = componentsURL.URL;
+    NSLog(@"%@", finalURL);
     
     [[[NSURLSession sharedSession] dataTaskWithURL:finalURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error)
         {
             NSLog(@"There was an error in %s: %@, %@", __PRETTY_FUNCTION__, error, [error localizedDescription]);
-        }
-        
-        if (response)
-        {
-            NSLog(@"%@", response);
+            completion(nil);
+            return;
         }
         
         if (data)
@@ -60,6 +49,7 @@ static NSString * const querySearchKey = @"query";
             if (error)
             {
                 NSLog(@"Error parsing JSON Data: %@", [error localizedDescription]);
+                completion(nil);
                 return;
             }
             NSMutableArray *moviesArray = [NSMutableArray new];
@@ -71,13 +61,7 @@ static NSString * const querySearchKey = @"query";
                 [moviesArray addObject:movie];
             }
             
-            if (moviesArray.count != 0)
-            {
-                AMGMovieController.sharedController.movies = moviesArray;
-                completion(moviesArray);
-            } else {
-                completion(@[]);
-            }
+            completion(moviesArray);
         }
     }]resume];
 }

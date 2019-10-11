@@ -13,11 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AMGMovieController : NSObject
 
-@property (nonatomic, copy) NSArray<AMGMovie *> * movies;
 
-+ (instancetype)sharedController;
-
-- (void)fetchMovies:(NSString *)searchTerm completion:(void (^)(NSArray<AMGMovie *> *))completion;
++ (void)fetchMovies:(NSString *)searchTerm completion:(void (^)(NSArray<AMGMovie *> *))completion;
 
 @end
 

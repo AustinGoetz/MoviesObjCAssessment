@@ -12,20 +12,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AMGMovie : NSObject
 
-//@property (nonatomic, copy, readonly, nullable) NSString *posterPath;
 @property (nonatomic, copy, readonly) NSString *title;
-@property (nonatomic, readonly) NSString *voteAverage;
+@property (nonatomic, readonly) NSNumber *voteAverage;
 @property (nonatomic, copy, readonly) NSString *overview;
 
 - (AMGMovie *)initWithTitle:(NSString *)title
-                voteAverage:(NSString *)voteAverage
+                voteAverage:(NSNumber *)voteAverage
                    overview:(NSString *)overview;
 
 @end
 
 @interface AMGMovie (JSONConvertable)
 
-- (AMGMovie *)initWithDictionary:(NSDictionary<NSString *, id> *)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 

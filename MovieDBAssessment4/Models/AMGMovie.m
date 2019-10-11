@@ -14,7 +14,7 @@ static NSString * const kOverview = @"overview";
 
 @implementation AMGMovie
 
-- (AMGMovie *)initWithTitle:(NSString *)title voteAverage:(NSString *)voteAverage overview:(NSString *)overview
+- (AMGMovie *)initWithTitle:(NSString *)title voteAverage:(NSNumber *)voteAverage overview:(NSString *)overview
 {
     self = [super init];
     if (self)
@@ -30,10 +30,10 @@ static NSString * const kOverview = @"overview";
 
 @implementation AMGMovie (JSONConvertable)
 
-- (AMGMovie *)initWithDictionary:(NSDictionary<NSString *, id> *)dictionary
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     NSString *title = dictionary[kTitleKey];
-    NSString *voteAverage = dictionary[kVoteAverageKey];
+    NSNumber *voteAverage = dictionary[kVoteAverageKey];
     NSString *overview = dictionary[kOverview];
     
     return [self initWithTitle:title voteAverage:voteAverage overview:overview];
